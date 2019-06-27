@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
 # Create your views here.
+
 def post_list(request):
     # 全て公開したい時
     posts = Post.objects.all()
