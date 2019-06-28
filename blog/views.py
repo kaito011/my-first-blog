@@ -6,9 +6,9 @@ from .form import PostForm
 
 def post_list(request):
     # 全て公開したい時
-    posts = Post.objects.all()
+    # posts = Post.objects.all()
     # 要件を満たす記事だけを公開したい時
-    # posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
